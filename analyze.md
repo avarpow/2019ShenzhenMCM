@@ -65,9 +65,9 @@ $C_k$城的总需求量为(单位：$Tb/s$)
 $$SNeed(C_k)=PoluC(C_k)×\overline{Dem}(C_k)=PoluC(C_k)×Dem(\bar{Y}(C_k),\bar{I}(C_k))\quad ⑤$$
 
 这需要假设
-* 年龄服从均匀分布，即$Y$~$U(0,2EY)$
-* 可支配收入服从均匀分布，即$I$~$U(0,2EI)$
-* $$\overline{Dem}(C_k)=Dem(\bar{Y}(C_k),\bar{I}(C_k))=\frac{∑_{i,j=1}^{n,m}Dem(Y_i,I_j)}{ij}\kern{2.5em}⑥$$
+* 年龄服从均匀分布，即$Y$~$U(0,2\bar{Y})$
+* 可支配收入服从均匀分布，即$I$~$U(0,2\bar{I})$
+* $$\overline{Dem}(C_k)=Dem(\bar{Y}(C_k),\bar{I}(C_k))=\frac{\displaystyle∑_{i,j=1}^{n,m}Dem(Y_i,I_j)}{nm}\kern{2.5em}⑥$$
 
 
 （3）价值最大化部署方案
