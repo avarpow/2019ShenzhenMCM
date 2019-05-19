@@ -1,3 +1,5 @@
+%初期实验的时候整理的数据和大概操作，没什么用的脚本
+
 data = rand(1,32); 
 data = 4 * data;    
 data = round(data);         %染色体处理

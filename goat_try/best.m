@@ -6,7 +6,7 @@ function [bestindividual, bestfit] = best(pop,fitvalue)
 bestindividual = pop(1,:);
 bestfit = fitvalue(1);
 for i = 2:px
-    if fitvalue(i)>bestfit
+    if fitvalue(i)>bestfit  %就是找最大值，没什么好说的
         bestindividual = pop(i,:);
         bestfit = fitvalue(i);
     end
