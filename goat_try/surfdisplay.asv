@@ -1,4 +1,4 @@
-function surfdisplay(serve)
+function surfdisplay(serve) %用来打印最优解的三维图
 load('C:\Users\16692\Desktop\数学建模\raw_data.mat');
 Mag = raw_data.LogMag;
 Phase = raw_data.Phase;
@@ -8,8 +8,8 @@ Mag(find(isinf(Mag))) = 0;
 Phase(find(isinf(Phase))) = 0;  
 y1 = raw_data.AZ(:,1);
 x1 = raw_data.EL(1,:);
-x = 0;
-y = 0;
+x = zeros
+y = 10.^(Mag(:,:,1,serve(1))/20).*sin(Phase(:,:,1,serve(1)));
 for i = 1 : 32
     if(serve(i) == 0) 
         continue;

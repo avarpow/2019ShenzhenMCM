@@ -6,9 +6,9 @@ clear;  %清空所有操作
 popsize = 100;  %种群大小
 chromlenth = 32;    %染色体长度
 pc = 0.7;   %交叉概率
-pm = 0.01;  %变异概率
+pm = 0.06;  %变异概率
 pop = initpop(popsize, chromlenth);  %染色体处理
-for i = 1:700
+for i = 1:10
     %计算适应度值（函数值）
     objvalue = cal_objvalue(pop);
     fitvalue = objvalue;
@@ -26,6 +26,7 @@ for i = 1:700
 end
     serve = bestindividual;
     surfdisplay(serve); %生成最优排列的图像
+    save txt serve;
     display(serve);
 end
 

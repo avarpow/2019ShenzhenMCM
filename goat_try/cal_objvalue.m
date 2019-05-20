@@ -1,5 +1,5 @@
 function objvalue = cal_objvalue(pop)
-load('C:\Users\16692\Desktop\数学建模\raw_data.mat');
+load 'raw_data.mat';
 objvalue = ones(1,100);
 Mag = raw_data.LogMag;
 Phase = raw_data.Phase;
@@ -36,8 +36,8 @@ b1 = b1 + 10^((Mag(39,21,i,k))/20.*sin(Phase(39,21,i,k)));
 a2 = a2 + 10^((Mag(39,20,i,k))/20.*cos(Phase(39,20,i,k)));
 b2 = b2 + 10^((Mag(39,20,i,k))/20.*sin(Phase(39,20,i,k)));
 end
-ans1 = (a1.^2 + b1.^2)^(1/2);
-ans2 = (a2.^2 + b2.^2)^(1/2);
+ans1 = (a2.^2 + b2.^2)^(1/2);
+ans2 = (a1.^2 + b1.^2)^(1/2);
 ans1 = 20 * (log10(ans1));
 ans2 = 20 * (log10(ans2)); %按照dbm和信号幅度的运算公式以及矢量的正交相加减最后求其长度
 
@@ -50,6 +50,6 @@ end
     %权重：50/20；
     display(ans1);
     display(ans2);
-    objvalue(1,j) = bj*17 + exp((37-ans2)/2);%对于特定的第一问的两个位置进行计算；
+    objvalue(1,j) = (1/(1+exp(-ans1+38)))*20*exp((37-ans2)/2);%对于特定的第一问的两个位置进行计算；
 
 end
