@@ -12,7 +12,7 @@ fitin = 1;  %初始化筛选
 newin = 1;
 while newin<=px
     if(ms(newin)) < p_fitvalue(fitin) %当随机选取的概率数小于当前的个体比重，即个体占优势，繁殖
-        newpop(newin,:)=pop(fitin,:);
+        newpop(newin,:)=pop(fitin,:); 
         newin = newin+1;
     else
         fitin=fitin+1; %反之阉割

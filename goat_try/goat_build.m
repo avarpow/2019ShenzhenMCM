@@ -8,7 +8,7 @@ chromlenth = 32;    %染色体长度
 pc = 0.7;   %交叉概率
 pm = 0.06;  %变异概率
 pop = initpop(popsize, chromlenth);  %染色体处理
-for i = 1:10
+for i = 1:3000
     %计算适应度值（函数值）
     objvalue = cal_objvalue(pop);
     fitvalue = objvalue;
@@ -23,6 +23,7 @@ for i = 1:10
     %寻找最优解
     [bestindividual,bestfit] = best(pop,fitvalue);
     display(bestfit);
+    display(i);
 end
     serve = bestindividual;
     surfdisplay(serve); %生成最优排列的图像
