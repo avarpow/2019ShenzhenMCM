@@ -26,20 +26,20 @@ interference_value = 0;
             continue;
         end
     
-    k = pop(j,i);   %取出当前的配置方式
-
+    %k = pop(j,i);   %取出当前的配置方式
+    k=serve
     % a1 =  10.^(Mag(39,21,1,k)/20).*cos(Phase(39,21,1,k));
     % b1 =  10.^(Mag(39,21,1,k)/20).*sin(Phase(39,21,1,k));
     % a2 =  10.^(Mag(39,20,1,k)/20).*cos(Phase(39,20,1,k));
     % b2 =  10.^(Mag(39,20,1,k)/20).*sin(Phase(39,20,1,k));
-      % display(k);
+     %   display(k);
     goal_component_cos = goal_component_cos + Mag_pow10(goal_index_AZ,goal_index_EL,i,k).*Phase_cos(goal_index_AZ,goal_index_EL,i,k);
     goal_component_sin = goal_component_sin + Mag_pow10(goal_index_AZ,goal_index_EL,i,k).*Phase_sin(goal_index_AZ,goal_index_EL,i,k);
     interference_component_cos = interference_component_cos + Mag_pow10(interference_index_AZ,interference_index_EL,i,k).*Phase_cos(interference_index_AZ,interference_index_EL,i,k);
-    interference_component_sin = interference_component_sin + Mag_pow10(interference_index_AZ,interference_index_EL,i,k).*Phase_sin(interference_index_AZ,interference_index_EL,i,k);
+    interference_component_cos = interference_component_cos + Mag_pow10(interference_index_AZ,interference_index_EL,i,k).*Phase_sin(interference_index_AZ,interference_index_EL,i,k);
     end
-    goal_value = (goal_component_cos.^2 + goal_component_sin.^2).^(1/2);
-    interference_value = (interference_component_cos.^2 + interference_component_sin.^2).^(1/2);
+    goal_value = (goal_component_cos.^2 + goal_component_sin.^2)^(1/2);
+    interference_value = (interference_component_cos.^2 + interference_component_sin.^2)^(1/2);
     goal_value = 20 * (log10(goal_value));
     display(interference_value);
     interference_value = 20 * (log10(interference_value)); %按照dbm和信号幅度的运算公式以及矢量的正交相加减最后求其长度
@@ -54,6 +54,6 @@ interference_value = 0;
     %权重：50/20；
    % display(ans1);
    % display(ans2);
-    objvalue(1,j) = 1/(1+exp((-(goal_value-35.5)*15)))*20*exp((20-interference_value)/10);%对于特定的第一问的两个位置进行计算；
+    objvalue(1,j) = 1/(1+exp((-(goal_value-35.5)*15)))*20*exp((37-interference_value)/2);%对于特定的第一问的两个位置进行计算；
 
 end

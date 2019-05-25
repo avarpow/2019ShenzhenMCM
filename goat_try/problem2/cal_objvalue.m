@@ -2,7 +2,8 @@ function objvalue = cal_objvalue(pop)
 load 'raw_data.mat';
 objvalue = ones(1,100);
 Mag = raw_data.LogMag;
-Phase = raw_data.Phase;
+Phase_raw = raw_data.Phase;
+Phase=Phase_raw/180*pi;
 Mag(find(isnan(Mag))) = 0;
 Phase(find(isnan(Phase))) = 0;
 Mag(find(isinf(Mag))) = 0;

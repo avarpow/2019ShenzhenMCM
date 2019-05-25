@@ -1,7 +1,8 @@
 function surfdisplay(serve) %用来打印最优解的三维图
 load 'raw_data.mat';
 Mag = raw_data.LogMag;
-Phase = raw_data.Phase;
+Phase_raw = raw_data.Phase;
+Phase=Phase_raw/180*pi;
 Mag(find(isnan(Mag))) = 0;
 Phase(find(isnan(Phase))) = 0;
 Mag(find(isinf(Mag))) = 0;
