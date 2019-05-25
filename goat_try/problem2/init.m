@@ -1,4 +1,4 @@
-funtion init()
+function init()
     clear;
     clc;
     clc;
@@ -10,7 +10,7 @@ funtion init()
     global Phase
     global Phase_cos
     global Phase_sin
-    
+   
    Mag = raw_data.LogMag;
    Mag(find(isnan(Mag))) = -10;
    Mag(find(isinf(Mag))) = -10;
@@ -23,5 +23,4 @@ funtion init()
    Phase(find(isinf(Phase))) = 0;
    Phase_cos=cos(Phase);
    Phase_sin=sin(Phase);  %LogMag和Phase数据处理，将inf和nan全部变成0;
-   
    
