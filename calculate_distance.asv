@@ -1,0 +1,11 @@
+city_x=[474 455 532 ]
+city_y=[]
+dis=zeros(18,18)
+for i = 1:18
+    for j = 1:18
+        zeros(i,j)=((city_x(i)-city_x(j))^2+(city_y(i)-city_y(j))^2)^(1/2)*0.85079834
+        if(zeros(i,j)>=200)
+            zeros(i,j)=-1
+        end
+    end
+end
