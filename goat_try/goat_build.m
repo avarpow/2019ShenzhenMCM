@@ -2,13 +2,24 @@ function main()
 init();
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=3000;
+generation=10000;
 popsize = 100;  %种群大小
 chromlenth = 32;    %染色体长度
 pc = 0.7;   %交叉概率
 pm = 0.3;  %变异概率
 pop = initpop(popsize, chromlenth);  %染色体处理
 for i = 1:generation
+        if(mod(i,500)==0)
+        fp=fopen([strrep(datestr(datetime),':','-'),'.txt'],'a');
+        fprintf(fp,'i=%d \n',i);
+        for k = 1:100
+            fprintf(fp,'%d ',pop(k,:));
+            fprintf(fp,'\n');
+            fprintf(fp,'%d ',objvalue(k));
+            fprintf(fp,'\n');
+        end
+        fclose(fp)
+    end
     %计算适应度值（函数值）
     objvalue = cal_objvalue(pop);
     fitvalue = objvalue;
