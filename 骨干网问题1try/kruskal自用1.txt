@@ -1,0 +1,101 @@
+input vertex number: 18
+input edge number: 76
+vertex(0): A
+vertex(1): B
+vertex(2): C
+vertex(3): D
+vertex(4): E
+vertex(5): F
+vertex(6): G
+vertex(7): H
+vertex(8): I
+vertex(9): J
+vertex(10): K
+vertex(11): L
+vertex(12): M
+vertex(13): N
+vertex(14): O
+vertex(15): P
+vertex(16): Q
+vertex(17): R
+edge(0):A B 19
+edge(1):A C 50
+edge(2):A D 62
+edge(3):A E 64
+edge(4):A F 74
+edge(5):A G 80
+edge(6):A H 98
+edge(7):A I 106
+edge(8):A J 115
+edge(9):A K 128
+edge(10):A M 162
+edge(11):A N 196
+edge(12):B C 66
+edge(13):B D 49
+edge(14):B E 71
+edge(15):B F 68
+edge(16):B G 65
+edge(17):B H 95
+edge(18):B I 114
+edge(19):B J 131
+edge(20):B K 110
+edge(21):B M 181
+edge(22):B N 178
+edge(23):C D 86
+edge(24):C E 98
+edge(25):C F 76
+edge(26):C G 130
+edge(27):C H 90
+edge(28):C I 67
+edge(29):C J 66
+edge(30):C K 176
+edge(31):C M 124
+edge(32):C Q 167
+edge(33):D E 119
+edge(34):D F 34
+edge(35):D G 84
+edge(36):D H 60
+edge(37):D I 103
+edge(38):D J 144
+edge(39):D K 111
+edge(40):D N 142
+edge(41):E F 137
+edge(42):E G 84
+edge(43):E H 162
+edge(44):E I 164
+edge(45):E J 153
+edge(46):E K 134
+edge(47):E L 129
+edge(48):E M 168
+edge(49):F G 116
+edge(50):F H 27
+edge(51):F I 73
+edge(52):F J 122
+edge(53):F K 145
+edge(54):F M 197
+edge(55):F N 161
+edge(56):G H 143
+edge(57):G I 176
+edge(58):G J 195
+edge(59):G K 51
+edge(60):G N 152
+edge(61):H I 62
+edge(62):H J 122
+edge(63):H K 169
+edge(64):H N 170
+edge(65):H Q 197
+edge(66):I J 65
+edge(67):I M 150
+edge(68):I Q 136
+edge(69):J M 86
+edge(70):J Q 102
+edge(71):K N 119
+edge(72):M Q 124
+edge(73):N P 114
+edge(74):O P 76
+edge(75):P R 131
+Kruskal=1243: (A,B) (F,H) (D,F) (B,D) (A,C) (G,K) (H,I) (A,E) (B,G) (I,J) (O,P) (J,M) (J,Q) (N,P) (K,N) (E,L) (P,R)
+
+--------------------------------
+Process exited after 18.2 seconds with return value 0
+请按任意键继续. . .
