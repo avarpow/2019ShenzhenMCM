@@ -1,0 +1,12 @@
+function map_display(tau)
+    global city_x
+    global city_y
+    global city_num
+    city_num=19;
+    for i = 1:city_num
+        for j=1:city_num
+            plot([city_x(i) city_x(j)],[city_y(i) city_y(j)],'LineWidth',tau(i,j));
+            hold on;
+        end
+    end
+    
