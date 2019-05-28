@@ -2,7 +2,7 @@ function main()
 init();
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=1000;
+generation=300;
 popsize = 100;  %种群大小
 chromlenth = 32;    %染色体长度
 pc = 0.7;   %交叉概率
