@@ -151,7 +151,7 @@
 
 
 
-\begin{titlepage}
+\begin{titlepage}  %封面
     \centering
     \vspace*{\stretch{0}}{
         \huge{
@@ -250,11 +250,16 @@
     \subsection{微波问题}
     \subsection{骨干网问题}
         \begin{enumerate}
+        \item 各个城市、人群的实际数据需求量总体随时间递增，但它并不是随时间一直增加的——
+            例如，每一天，用户带宽需求都会随着时辰的改变而改变。
+            信息网络的部署实际上应该着眼于每天/每周的用网高峰期。
+            则在本文中，我们讨论的“数据需求量”均表示每天/每周用网高峰期的实际数据需求量。
         \item 如表格\ref{2g}，从1991年2g网络诞生至今，我们熟知的移动网络通信标准大约10年更新一代。
         为了满足用户对信息容量与信息传输速度的需求，移动网络通信技术积极更新换代,
         其更新换代的速度大致可以反应所有网络通信技术更新换代的技术。
         假设在十年后广东省的总数据需求量已经达到了（所提供传输格式的）
-        最大总容量$64Tb/s$的$90\%$,即$57.6Tb/s$。
+        最大总容量$64Tb/s$的$90\%$,即$57.6Tb/s$。\\
+        \Huge{此条为临时分析，等ldl的回归分析来取缔}\normalsize
         \begin{table}[htbp]
             \centering
               \begin{tabular}{ccccc}
@@ -270,6 +275,7 @@
         \item 骨干网承担各城市对外网络交互的出入口功能，起止点应该设于各个城市中心
             我们合理地假设所有光缆铺设的起止点位于各个城市的市政府附近，并以各市市政府
             位置为标准测量各城市间的距离。
+            
         \item 光缆的铺设与维护是一项专业性工作，不需要像铺设公路考虑驾驶员安全一样苛刻。
             在铺设光缆时，只需要避开极端地形。不考虑海拔变化/地形因素对光缆长度的影响，
             我们合理地假设在两城间铺设光缆时，成本最低的方案大致为全线沿直线铺设。
@@ -281,7 +287,7 @@
 
 \section{符号说明}
     \subsection{微波问题}
-    \subsubsection{骨干网问题}
+    \subsection{骨干网问题}
 
 
 
@@ -291,7 +297,7 @@
     \subsection{微波相关1.2.3.4.5}
 
 
-    \subsection[数据需求模型]{数据需求模型}
+    \subsection{数据需求模型}\label{ShuJv}
             \begin{figure}[]
                     \centering
                     \includegraphics{need.png}
@@ -358,13 +364,13 @@
                      \end{bmatrix}$$
                     \end{itemize}                    
                 \item 则D层对C层的一致性指标为
-                    $$CI_{D-C}=[0.0046,0.0174,0]\begin{bmatrix}
+                    $$CI_{D-C}=[0.0046,0.0174,0]×\begin{bmatrix}
                     0.2227 \\
                     0.7071 \\
                     0.0702
                      \end{bmatrix}=0.0133$$
                 \item 又有D层对C层的平均随机一致性指标为
-                    $$RI_{D-C}=[0.58,0.58,0]\begin{bmatrix}
+                    $$RI_{D-C}=[0.58,0.58,0]×\begin{bmatrix}
                     0.2227 \\
                     0.7071 \\
                     0.0702
@@ -379,7 +385,7 @@
         
 
 
-    \subsection{城市评分模型}
+    \subsection{城市评分模型}\label{PingFen}
         \subsubsection{平均年龄评分}
             当今社会中的年轻人，特别是大学生使用互联网教多，数据需求量较大。
             数据需求量的峰值大约在年龄为15岁~25岁之间达到。
@@ -419,6 +425,11 @@
     \subsection{微波问题2}
     \subsection{骨干网问题1}
         \subsubsection[网络需求评估]{网络需求评估}
+            对广东省各城市人口、平均年龄、人均可支配收入\upcite{SJ}，
+            根据\ref{PingFen}城市评分模型进行评分，
+            并根据\ref{ShuJv}数据需求模型评价各个城市的需求总分。
+            以xxxxxxx为标准，得到单位分数对应的数据需求量，
+            以此评估广东省各城市的数据需求量。            
     \subsection{骨干网问题2}
 
 
@@ -443,6 +454,7 @@
     \bibitem{Lxh}{李相赫,《教你玩中单》,召唤师峡谷：峡谷出版社, 2015.}
     \bibitem{RR}{金泰相,论中路混子的基本素养,洲际赛日报，2018,S(8):02-03,2018.}
     \bibitem{sm}{王思聪,论我为何没有马,http://www.wscnomom.cnm,2018.11.11.}
+    \bibitem{SJ}{广东省统计局,广东统计信息网（及首页中各市链接）, http://stats.gd.gov.cn/, 2019.5.12.}
 \end{thebibliography}
 
 \end{document}
