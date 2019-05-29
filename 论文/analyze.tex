@@ -111,7 +111,7 @@
     %将序号改为"it":意大利斜体，全部字体改成\Large
      
     %2.
-    \captionsetup[figure]{name=图片,font={Large, normalfont}} 
+    \captionsetup[figure]{name=图片} 
     %将图片描述设置为 “图片X: ”(默认)
     %texdoc caption 查看文档得到所有font,上面的it就是一种
 
@@ -182,7 +182,7 @@
 
     \vspace{\stretch{3}}
     {\today}
-    \end{titlepage}
+\end{titlepage}
     
 
 
@@ -194,6 +194,9 @@
 
 %三、正文
 \section{摘要}
+
+
+
 
 \section{问题重述与分析}
     \subsection{微波问题}
@@ -244,20 +247,178 @@
 
 
 \section{模型假设}\label{mxjs}
+    \subsection{微波问题}
+    \subsection{骨干网问题}
+        \begin{enumerate}
+        \item 如表格\ref{2g}，从1991年2g网络诞生至今，我们熟知的移动网络通信标准大约10年更新一代。
+        为了满足用户对信息容量与信息传输速度的需求，移动网络通信技术积极更新换代,
+        其更新换代的速度大致可以反应所有网络通信技术更新换代的技术。
+        假设在十年后广东省的总数据需求量已经达到了（所提供传输格式的）
+        最大总容量$64Tb/s$的$90\%$,即$57.6Tb/s$。
+        \begin{table}[htbp]
+            \centering
+              \begin{tabular}{ccccc}
+              \toprule
+              标准     & 2g     & 3g     & 4g     & 5g \\
+              \midrule
+              时间     & 1991   & 1998   & 2008   & 2020 \\
+              \bottomrule
+              \end{tabular}%              
+            \caption{移动网络通信标准对应诞生时间}\label{2g}
+          \end{table}%
+
+        \item 骨干网承担各城市对外网络交互的出入口功能，起止点应该设于各个城市中心
+            我们合理地假设所有光缆铺设的起止点位于各个城市的市政府附近，并以各市市政府
+            位置为标准测量各城市间的距离。
+        \item 光缆的铺设与维护是一项专业性工作，不需要像铺设公路考虑驾驶员安全一样苛刻。
+            在铺设光缆时，只需要避开极端地形。不考虑海拔变化/地形因素对光缆长度的影响，
+            我们合理地假设在两城间铺设光缆时，成本最低的方案大致为全线沿直线铺设。
+        \end{enumerate}
+
+
+
+
 
 \section{符号说明}
+    \subsection{微波问题}
+    \subsubsection{骨干网问题}
+
+
+
+
 
 \section{模型建立}
     \subsection{微波相关1.2.3.4.5}
-    \subsection{数据需求模型}
+
+
+    \subsection[数据需求模型]{数据需求模型}
+            \begin{figure}[]
+                    \centering
+                    \includegraphics{need.png}
+                    \caption{数据需求层次结构}\label{SJXQCCJG}
+                \end{figure}
+        建立层次结构模型，如图片\ref{SJXQCCJG}。                
+        这三层分别为目标层O（数据需求量），准则层C，决定层D。
+
+        \begin{enumerate}
+            \item C层对数据需求量的影响：
+            \begin{enumerate}
+                \item 建立成对比较矩阵：
+                $A_{C-O}=\begin{bmatrix}
+                    1 & \frac{1}{4} & 4 \\                    
+                    4 & 1 & 8\\                  
+                    \frac{1}{4} & \frac{1}{8} & 1
+                 \end{bmatrix}$
+                \item 求得最大特征值$\lambda _{max}=3.0536$及其对应的权向量为
+                    $$\overrightarrow\omega_{C-O}=(0.2227,0.7071,0.0702)$$
+                \item 由$n_{c-o}=3$，求得$A_{C-O}$的一致性指标$CI_{C-O}=0.0268$
+                \item 由$n_{c-o}=3$，得平均随机一致性指标$RI_{C-O}=0.58$，
+                    则随机一致性比率$CR_{C-O}=0.0462<0.1$，接受该层分析。\\
+            \end{enumerate}
+            则认为商业需求，个人需求，行政需求对数据需求量影响的比重分别为$0.2227,0.7071,0.0702$。
+              
+            \item D层对数据需求量的影响：
+            \begin{enumerate}
+                \item 为D层对商业需求的影响建立成对比较矩阵：
+                $$A_{D-C_1}=\begin{bmatrix}
+                    1 & \frac{1}{8} & \frac{1}{6} \\
+                    8 & 1 & 1\\
+                    6 & 1 & 1
+                 \end{bmatrix}$$
+                \item 为D层对个人需求的影响建立成对比较矩阵：
+                $$A_{D-C_2}=\begin{bmatrix}
+                    1 & \frac{1}{2} & \frac{1}{8} \\
+                    2 & 1 & \frac{1}{7}\\
+                    8 & 7 & 1
+                 \end{bmatrix}$$
+                \item 为D层对行政需求的影响建立成对比较矩阵：\\（其中$D_1$不影响行政需求）
+                $$A_{D-C_3}=\begin{bmatrix}
+                    1 & \frac{1}{2}\\
+                    2 & 1
+                 \end{bmatrix}$$
+                \item \begin{itemize}
+                    \item 求得这三个成对比较矩阵的最大特征值向量为$$\lambda _{max}=(3.0092,3.0349,2)$$
+                    \item 其对应的权向量矩阵为$$W_{D-C}=\begin{bmatrix}
+                        0.0672 & 0.0813 & 0 \\
+                        0.4887 & 0.1349 & 0.3333 \\
+                        0.444  & 0.7838 & 0.6667
+                     \end{bmatrix}$$
+                    \item 对应的D层对O层的组合权向量为$$\omega_{D-O}=\begin{bmatrix}
+                        0.0672 & 0.0813 & 0 \\
+                        0.4887 & 0.1349 & 0.3333 \\
+                        0.444  & 0.7838 & 0.6667
+                     \end{bmatrix}×\begin{bmatrix}
+                        0.2227 \\
+                        0.7071 \\
+                        0.0702
+                     \end{bmatrix}=\begin{bmatrix}
+                        0.0725 \\
+                        0.2276 \\
+                        0.6999
+                     \end{bmatrix}$$
+                    \end{itemize}                    
+                \item 则D层对C层的一致性指标为
+                    $$CI_{D-C}=[0.0046,0.0174,0]\begin{bmatrix}
+                    0.2227 \\
+                    0.7071 \\
+                    0.0702
+                     \end{bmatrix}=0.0133$$
+                \item 又有D层对C层的平均随机一致性指标为
+                    $$RI_{D-C}=[0.58,0.58,0]\begin{bmatrix}
+                    0.2227 \\
+                    0.7071 \\
+                    0.0702
+                     \end{bmatrix}=0.5393$$
+                \item 则D层对O层的组合随机一致性比率为
+                    $CR_{D-O}=0.0462+\displaystyle\frac{0.0133}{0.5393}=
+                    0.0709<0.1$，接受该层分析。
+            \end{enumerate}
+
+        \end{enumerate}
+        综上，得到年龄，收入，人口对数据需求量影响的比重分别为$0.0725,0.2276,0.6999$
+        
+
+
     \subsection{城市评分模型}
+        \subsubsection{平均年龄评分}
+            当今社会中的年轻人，特别是大学生使用互联网教多，数据需求量较大。
+            数据需求量的峰值大约在年龄为15岁~25岁之间达到。
+            广东省内各城市平均年龄均大于30岁，则年龄与数据需求量大致可视为负相关，
+            则选择以反比例尺度对平均年龄评分
+            \begin{itemize}
+                \item 以广州市的平均年龄$Y_0=34.4$岁为100分
+                \item 某市$C_k$的平均年龄为$Y_k$，满足$Y_0=\displaystyle\frac{x_{k2}}{100}·Y_k$,则该市年龄得分为$x_{k2}$
+                \item 任一城市$C_k$的年龄得分为$$x_{k2}=\frac{100Y_0}{Y_k}$$
+            \end{itemize}
+
+        \subsubsection{人均可支配收入评分}
+            数据需求量应当与收入呈正相关，但随着收入的增加，
+            数据需求量的增长率不会一直保持水平，应该随收入的增加而逐渐降低。
+            则选择以对数尺度对人均可支配收入评分：
+            \begin{itemize}
+                \item 以广州市人均可支配收入为100分\par 
+                    (\ 设广州市人均可支配收入$I_0=5.5356=a^{100}$万元\ )
+                \item 某市$C_k$的人均可支配收入$I_k=a^{x_{k1}}$万元，则该市收入得分为$x_{k1}$
+                \item 任一城市$C_k$的收入得分为$$x_{k1}=\log _{I_0}({I_k}^{100})=\frac{100\ln I_k}{\ln I_0}$$
+            \end{itemize}
+
+        \subsubsection{人口评分}
+            由于城市需求量大致是每个群体的群体需求量的总和，
+            所以人口与数据需求量大致成线性关系。则选择以线性尺度对城市人口评分
+            \begin{itemize}
+                \item 以广州市的人口$P_0=1490.44$万人为100分
+                \item 某市$C_k$的人口为$P_k$,则该市的人口得分为$$x_{k3}=\frac{100P_k}{P_0}$$
+            \end{itemize}
  
+
+
+
 
 \section{问题求解}
     \subsection{微波问题1}
     \subsection{微波问题2}
     \subsection{骨干网问题1}
-        \subsubsection{网络需求评估}
+        \subsubsection[网络需求评估]{网络需求评估}
     \subsection{骨干网问题2}
 
 
