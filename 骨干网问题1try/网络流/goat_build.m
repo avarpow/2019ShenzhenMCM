@@ -23,16 +23,16 @@ for i = 1:generation
     %寻找最优解
     [bestindividual,bestfit] = best(pop,fitvalue);
     process(i)=bestfit;
-    display(bestfit);
-    display(i);
+    disp(bestfit);
+    disp(i);
     figure(3);
     plot(x(1:i),process(1:i))
 end
     serve = bestindividual;
     figure(4);
-    surfdisplay(serve); %生成最优排列的图像
-    save txt serve;
-    display(serve);
+    %surfdisplay(serve); %生成最优排列的图像
+    %save txt serve;
+    disp(serve);
 end
 
 
