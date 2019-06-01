@@ -4,6 +4,7 @@ global chromlenth
 global route_index
 global route_cable
 global total_requirement
+global pop_record
 global rate_record
 global cost_record
 route_weight=route_index;
@@ -22,9 +23,10 @@ for j = 1 : pop_size
         end
     end
     cover_rate=calculate_max_flow(route_weight)/total_requirement;
+    pop_record=[pop_record ; pop(j,:)];
     rate_record=[rate_record cover_rate];
     cost_record=[cost_record cost(j)];
-    objvalue(1,j) = exp(cover_rate/cost(j));%/cost(j);%对于特定的第一问的两个位置进行计算；
+    objvalue(1,j) = exp(cover_rate*10)/exp(cost(j)/1000);%/cost(j);%对于特定的第一问的两个位置进行计算；
     %disp(f);
     disp(cost(j))
 end

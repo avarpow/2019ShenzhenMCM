@@ -9,10 +9,12 @@ global route_index
 global pop_size  
 global chromlenth 
 global total_requirement
+global pop_record
 global rate_record
 global cost_record
 rate_record=[];
 cost_record=[];
+pop_record=[];
 route_cable=route;
 pop_size = 100;%种群大小
 chromlenth = 21;%染色体长度

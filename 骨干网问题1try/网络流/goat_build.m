@@ -3,9 +3,10 @@ init();
 global pop_size
 global rate_record
 global cost_record
+global pop_record
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=3000;
+generation=2000;
 pop_size = 100;  %种群大小
 chromlenth = 21;    %染色体长度
 pc = 0.7;   %交叉概率
