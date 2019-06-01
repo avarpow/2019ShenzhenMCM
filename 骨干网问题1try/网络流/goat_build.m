@@ -6,11 +6,11 @@ global cost_record
 global pop_record
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=2000;
+generation=500;
 pop_size = 100;  %种群大小
 chromlenth = 21;    %染色体长度
 pc = 0.7;   %交叉概率
-pm = 0.1;  %变异概率
+pm = 0.9;  %变异概率
 pop = initpop(pop_size, chromlenth);  %染色体处理
 for i = 1:generation
     %计算适应度值（函数值）

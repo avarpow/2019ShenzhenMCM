@@ -22,7 +22,7 @@ function max_flow=calculate_max_flow(route_weight)%用EK算法计算最大流
         flow=flow+d;
     end
     max_flow=flow;
-    fprintf('    %.4f\n',max_flow);
+    %fprintf('    %.4f\n',max_flow);
 end
 
 

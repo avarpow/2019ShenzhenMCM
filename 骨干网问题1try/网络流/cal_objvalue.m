@@ -26,7 +26,7 @@ for j = 1 : pop_size
     pop_record=[pop_record ; pop(j,:)];
     rate_record=[rate_record cover_rate];
     cost_record=[cost_record cost(j)];
-    objvalue(1,j) = exp(cover_rate*10)/exp(cost(j)/1000);%/cost(j);%对于特定的第一问的两个位置进行计算；
+    objvalue(1,j) = cover_rate*10/exp(cost(j)/1000);%/cost(j);%对于特定的第一问的两个位置进行计算；
     %disp(f);
-    disp(cost(j))
+    %fprintf('%.2f',cost(j));
 end
