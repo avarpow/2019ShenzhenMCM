@@ -1,13 +1,14 @@
 function main()
 init();
+global pop_size
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=10000;
-popsize = 100;  %种群大小
-chromlenth = 20;    %染色体长度
+generation=300;
+pop_size = 100;  %种群大小
+chromlenth = 21;    %染色体长度
 pc = 0.7;   %交叉概率
-pm = 0.3;  %变异概率
-pop = initpop(popsize, chromlenth);  %染色体处理
+pm = 0.1;  %变异概率
+pop = initpop(pop_size, chromlenth);  %染色体处理
 for i = 1:generation
     %计算适应度值（函数值）
     objvalue = cal_objvalue(pop);
@@ -29,10 +30,10 @@ for i = 1:generation
     plot(x(1:i),process(1:i))
 end
     serve = bestindividual;
-    figure(4);
+    %figure(4);
     %surfdisplay(serve); %生成最优排列的图像
     %save txt serve;
-    disp(serve);
+    %disp(serve);
 end
 
 

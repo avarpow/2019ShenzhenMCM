@@ -1,18 +1,17 @@
-function flag=bfs(route_weight)
+function flag=bfs()
     global pre;
     global rest
-    maxn=20;
-    rest=route_weight;%残余网络
-    visit=zeros(1,20);
-    pre=zeros(1,20);
-    pre=int8(pre);
-    s=1;%源点
-    t=20;%超级汇
     head=1;
     tail=1;
     queue(head)=1;
     visit(1)=1;
     head=head+1;
+    maxn=20;
+    %rest=route_weight;%残余网络
+    visit=zeros(1,20,'int8');
+    pre=zeros(1,20,'int8');
+    s=1;%源点
+    t=20;%超级汇
     while(tail~=head)
         i=queue(tail);
         tail=tail+1;
