@@ -6,7 +6,7 @@ global cost_record
 global pop_record
 process=zeros(1,50000);%统计遗传算法的进步过程
 x=(1:50000);
-generation=500;
+generation=100000;
 pop_size = 100;  %种群大小
 chromlenth = 21;    %染色体长度
 pc = 0.7;   %交叉概率
@@ -37,7 +37,7 @@ end
     %surfdisplay(serve); %生成最优排列的图像
     %save txt serve;
     disp(serve);
-    scatter(rate_record,cost_record,1)
+    scatter(rate_record,cost_record,0.5)
 
 
 
